@@ -19,7 +19,7 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
                     emoji="&#127818;",
                     tsp1=50,
                     tsp2=65,
-                    socfile="/etc/armbianmonitor/datasources/soctemp")
+                    socfile="/opt/vc/bin/vcgencmd")
 
     def interval(self):
         return float(self._settings.get(['rate']))
@@ -55,9 +55,9 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
         try:
             soc_file = self._settings.get(["socfile"])
             if os.path.isfile(soc_file):
-                p = run("cat " + soc_file, stdout=Capture())
+                p = run('/opt/vc/bin/vcgencmd measure_temp', stdout=Capture())
                 p = p.stdout.text
-                match = re.search(r"(\d+)", p)
+                match = re.search(r"=(.*)\", p)
             else:
                 self._logger.error("OpiTemp: can't determine the temperature,"
                                    + " are you sure you're using Armbian?")
