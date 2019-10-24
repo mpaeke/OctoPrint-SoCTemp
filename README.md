@@ -9,4 +9,4 @@ Some code ~~inspired by~~ stolen from: https://github.com/ntoff/OctoPrint-Navbar
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
 
-    https://github.com/hashashin/OctoPrint-OpiTemp/archive/master.zip
+    https://github.com/mpaeke/OctoPrint-OpiTemp/archive/master.zip
