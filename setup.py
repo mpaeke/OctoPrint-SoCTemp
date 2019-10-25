@@ -15,7 +15,7 @@ plugin_package = "octoprint_opitemp"
 plugin_name = "OctoPrint-OpiTemp"
 
 # The plugin's version. Can be overwritten within OctoPrint's internal data via __plugin_version__ in the plugin module
-plugin_version = "1.0.6"
+plugin_version = "1.1.6"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
@@ -28,7 +28,7 @@ plugin_author = "hashashin"
 plugin_author_email = "gentoo.power@gmail.com"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/hashashin/OctoPrint-OpiTemp"
+plugin_url = "https://github.com/mpaeke/OctoPrint-OpiTemp"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "AGPLv3"
