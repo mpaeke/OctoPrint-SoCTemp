@@ -1,15 +1,15 @@
 $(function() {
-    function OpitempViewModel(parameters) {
+    function SoCTempViewModel(parameters) {
         var self = this;
         var text = "";
-        self.opitempModel = parameters[0];
+        self.soctempModel = parameters[0];
         self.global_settings = parameters[1];
         self.Temp = ko.observable();
         self.Temp(text);
         self.Color = ko.observable();
 
         self.onDataUpdaterPluginMessage = function(plugin, data) {
-            if (plugin != "opitemp") {
+            if (plugin != "soctemp") {
                 return;
             }
             text = data.emoji + data.soctemp;
@@ -20,7 +20,7 @@ $(function() {
     ADDITIONAL_VIEWMODELS.push([
         OpitempViewModel,
         ["navigationViewModel"],
-        ["#navbar_plugin_opitemp"]
+        ["#navbar_plugin_soctemp"]
     ]);
 
 });
