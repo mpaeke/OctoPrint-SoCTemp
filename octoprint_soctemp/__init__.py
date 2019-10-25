@@ -7,7 +7,7 @@ import platform
 import octoprint.plugin
 from octoprint.util import RepeatedTimer
 
-class OpitempPlugin(octoprint.plugin.SettingsPlugin,
+class SoCTempPlugin(octoprint.plugin.SettingsPlugin,
                     octoprint.plugin.StartupPlugin,
                     octoprint.plugin.AssetPlugin,
                     octoprint.plugin.TemplatePlugin):
@@ -27,7 +27,7 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
     def on_after_startup(self):
         t = RepeatedTimer(self.interval, self.check_temp)
         t.start()
-        self._logger.info("OpiTemp READY")
+        self._logger.info("SoCTemp READY")
 
     def get_template_configs(self):
         return [
@@ -61,7 +61,7 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
                 p = p.stdout.text
                 match = re.search(self.parse_pattern, p)
             else:
-                self._logger.error("OpiTemp: can't determine the temperature,"
+                self._logger.error("SoCTemp: can't determine the temperature,"
                                    + " are you sure you're using RasPi?")
                 return
 
@@ -74,9 +74,9 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
                                                           color=self.color
                                                          )
                                                     )
-            self._logger.debug("OpiTemp REFRESH")
+            self._logger.debug("SoCTemp REFRESH")
         except Exception as e:
-            self._logger.warning("OpiTemp REFRESH FAILED: {0}".format(e))
+            self._logger.warning("SoCTemp REFRESH FAILED: {0}".format(e))
 
     def get_assets(self):
         return dict(
@@ -85,25 +85,25 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
 
     def get_update_information(self):
         return dict(
-            opitemp=dict(
-                displayName="Opitemp Plugin",
+            soctemp=dict(
+                displayName="SoCTemp Plugin",
                 displayVersion=self._plugin_version,
 
                 type="github_release",
-                user="hashashin",
-                repo="OctoPrint-OpiTemp",
+                user="mpaeke",
+                repo="OctoPrint-SoCTemp",
                 current=self._plugin_version,
 
-                pip="https://github.com/hashashin/OctoPrint-OpiTemp/archive/{target_version}.zip"
+                pip="https://github.com/mpaeke/OctoPrint-SoCTemp/archive/{target_version}.zip"
             )
         )
 
 
-__plugin_name__ = "Opitemp Plugin"
+__plugin_name__ = "SoCTemp Plugin"
 
 def __plugin_load__():
     global __plugin_implementation__
-    __plugin_implementation__ = OpitempPlugin()
+    __plugin_implementation__ = SoCTempPlugin()
 
     global __plugin_hooks__
     __plugin_hooks__ = {
