@@ -2,9 +2,9 @@
 
 Simple plugin to show Orange Pi (running armbian) SOC temperature in the navbar.
 
-Some code ~~inspired by~~ stolen from: https://github.com/ntoff/OctoPrint-NavbarTemp 
+Some code based on: https://github.com/ntoff/OctoPrint-NavbarTemp 
 
-Modified to work with RasPi Hardware.
+Modified for RasPi Hardware to permanently show SoC Temperature in the NavBar.
 
 ## Setup
 
