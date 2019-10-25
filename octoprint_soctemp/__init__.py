@@ -80,7 +80,7 @@ class SoCTempPlugin(octoprint.plugin.SettingsPlugin,
 
     def get_assets(self):
         return dict(
-            js=["js/opitemp.js"]
+            js=["js/soctemp.js"]
         )
 
     def get_update_information(self):
