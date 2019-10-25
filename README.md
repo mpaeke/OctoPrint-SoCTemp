@@ -11,4 +11,4 @@ Modified to work with RasPi Hardware.
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
 
-    https://github.com/mpaeke/OctoPrint-OpiTemp/archive/master.zip
+    https://github.com/mpaeke/OctoPrint-SoCTemp/archive/master.zip
