@@ -1,6 +1,6 @@
 # OctoPrint-OpiTemp
 
-Simple plugin to show Orange Pi (running armbian) SOC temperature in the navbar.
+Simple plugin to show Paspberry Pi (running RasPi) SOC temperature in the navbar.
 
 Some code based on: https://github.com/ntoff/OctoPrint-NavbarTemp 
 
