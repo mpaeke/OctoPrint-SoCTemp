@@ -50,26 +50,23 @@ class OpitempPlugin(octoprint.plugin.SettingsPlugin,
             self.color = "red"
 
     def check_temp(self):
+        self.temp_cmd = '/opt/vc/bin/vcgencmd measure_temp'
+        self.parse_pattern = '=(.*)\''
         from sarge import run, Capture
         import os.path
         try:
             soc_file = self._settings.get(["socfile"])
             if os.path.isfile(soc_file):
-                p = run('/opt/vc/bin/vcgencmd measure_temp', stdout=Capture())
+                p = run(self.temp_cmd, stdout=Capture())
                 p = p.stdout.text
-                match = re.search(r"=(.*)\", p)
+                match = re.search(self.parse_pattern, p)
             else:
                 self._logger.error("OpiTemp: can't determine the temperature,"
-                                   + " are you sure you're using Armbian?")
+                                   + " are you sure you're using RasPi?")
                 return
-            # lazy fix for #3, yeah I known...
-            if platform.release().startswith("4"):
-                self.temp = "{0:.1f}".format(float(match.group(1))/1000)
-            elif platform.release().startswith("3"):
-                self.temp = match.group(1)
-            else:
-                self._logger.warning("OpiTemp: unknown kernel version!")
-                self.temp = 0
+
+            self.temp = match.group(1)
+
             self.set_text_color()
             self._plugin_manager.send_plugin_message(self._identifier,
                                                      dict(soctemp=self.temp,
