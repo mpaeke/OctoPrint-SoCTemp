@@ -16,7 +16,7 @@ class SoCTempPlugin(octoprint.plugin.SettingsPlugin,
 
     def get_settings_defaults(self):
         return dict(rate=10.0,
-                    emoji="&#127819; ",  # 127818
+                    emoji="&#127777; ",  # 127818
                     tsp1=50,
                     tsp2=65,
                     socfile="/opt/vc/bin/vcgencmd")
