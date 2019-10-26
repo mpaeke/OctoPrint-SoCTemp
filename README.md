@@ -1,4 +1,4 @@
-# OctoPrint-OpiTemp
+# OctoPrint-SoCTemp
 
 Simple plugin to show Paspberry Pi (running RasPi) SOC temperature in the navbar.
 
